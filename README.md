@@ -1,9 +1,11 @@
 LocationReportEnabler
 =====================
 
-A simple android app to enable Google Location Report, Google Now and related functions in china.
+A simple android app to enable Google Location Report, Google Now and related functions in China.
 
 *ROOT REQUIRED*
+
+*I hava found an issue abount Google Maps and its satellite view, no matter which one is correct and the other must be wrong. If someone finds the way to solve it, please contact me or reply in issue #2*
 
 The only thing the app does is set 3 variables about sim card once the device boot completed.
 
