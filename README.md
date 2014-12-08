@@ -18,5 +18,14 @@ This will disable the loation correction of Google Maps so that it wil have a so
 
 Download: https://drive.google.com/file/d/0BxNnvIFWQpP2aGszc3lYRWRCSzg/view?usp=sharing
 
+####Alternative version
+
+*If you do not have problems using the first one, just skip this.*
+
+For some users who use the locker of sim PIN or others, the origin one may change the settting a little early. And there is an alternative version changing it after the sim card is ready, this may should be tested for some time and need a more sensetive permission. 
+
+Download: https://drive.google.com/file/d/0BxNnvIFWQpP2SjhBRWRRSzFkQms/view?usp=sharing
+
+
 NOTICE：  
 The size of the app is alomost the support lib, so you can remove it and complie a smaller one.
