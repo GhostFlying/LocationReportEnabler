@@ -22,7 +22,9 @@ Download: https://drive.google.com/file/d/0BxNnvIFWQpP2aGszc3lYRWRCSzg/view?usp=
 
 *If you do not have problems using the first one, just skip this.*
 
-For some users who use the locker of sim PIN or others, the origin one may change the settting a little early. And there is an alternative version changing it after the sim card is ready, this may should be tested for some time and need a more sensetive permission. 
+For some users who use the locker of sim PIN or others, the origin one may change the setting a little early. And this is an alternative version changing it after the sim card is ready, this may should be tested for some time and need a more sensetive permission. 
+
+Beside above, this version is only set the gms.sim.operator.numeric to 310030 for experiment. It showed the same function but have less side effect.
 
 Download: https://drive.google.com/file/d/0BxNnvIFWQpP2SjhBRWRRSzFkQms/view?usp=sharing
 
