@@ -36,3 +36,11 @@ Full version: https://drive.google.com/file/d/0BxNnvIFWQpP2aGszc3lYRWRCSzg/view?
 
 NOTICE：  
 The size of the app is alomost the support lib, so you can remove it and complie a smaller one.
+
+####Xposed Experiment 
+
+As the alpha version of xposed for lollipop is released, we have a better way to unlock location report in China.
+
+If you have already installed the new xposed framwork, you can easily install the below module to enable location report and do not effect any other apps. You can review the code in xposed branch.
+
+Xposed version: https://drive.google.com/file/d/0BxNnvIFWQpP2U2NSM3ptdjBnQkk/view?usp=sharing
