@@ -11,7 +11,10 @@
         android:theme="@style/AppTheme" >
 
         <meta-data android:value="true" android:name="xposedmodule"/>
-        <meta-data android:value="1.0*" android:name="xposedminversion"/>
+        <meta-data android:value="61" android:name="xposedminversion"/>
+        <meta-data
+            android:name="xposeddescription"
+            android:value="Enable Google location report in China" />
     </application>
 
 </manifest>
