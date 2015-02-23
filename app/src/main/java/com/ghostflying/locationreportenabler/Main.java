@@ -18,11 +18,14 @@ public class Main implements IXposedHookLoadPackage {
             return;
         }
 
-        XposedBridge.log("Start hook sim card information");
-
-        findAndHookMethod("android.telephony.TelephonyManager", loadPackageParam.classLoader, "getSimOperator", mOperatorCodeHook);
-        findAndHookMethod("android.telephony.TelephonyManager", loadPackageParam.classLoader, "getSimCountryIso", mCountryISOHook);
-        findAndHookMethod("android.telephony.TelephonyManager", loadPackageParam.classLoader, "getSimOperatorName", mOperatorNameHook);
+        try{
+            findAndHookMethod("android.telephony.TelephonyManager", loadPackageParam.classLoader, "getSimOperator", mOperatorCodeHook);
+            findAndHookMethod("android.telephony.TelephonyManager", loadPackageParam.classLoader, "getSimCountryIso", mCountryISOHook);
+            findAndHookMethod("android.telephony.TelephonyManager", loadPackageParam.classLoader, "getSimOperatorName", mOperatorNameHook);
+        }
+        catch (Throwable t){
+            XposedBridge.log(t);
+        }
     }
 
     private XC_MethodHook mOperatorCodeHook = new XC_MethodReplacement() {
