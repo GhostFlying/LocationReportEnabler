@@ -3,31 +3,34 @@
     package="com.ghostflying.locationreportenabler" >
 
     <uses-permission android:name="android.permission.RECEIVE_BOOT_COMPLETED" />
+    <uses-permission android:name="android.permission.READ_PHONE_STATE" />
 
     <application
         android:allowBackup="true"
         android:icon="@drawable/ic_launcher"
         android:label="@string/app_name"
         android:theme="@style/AppTheme" >
-        <receiver
-            android:name="com.ghostflying.locationreportenabler.BootCompletedReceiver"
-            android:enabled="true"
-            android:exported="true" >
-            <intent-filter>
-                <action android:name="android.intent.action.BOOT_COMPLETED" />
-            </intent-filter>
-        </receiver>
-
         <activity
-            android:name="com.ghostflying.locationreportenabler.MainActivity"
-            android:theme="@style/Base.Theme.AppCompat.Light.Dialog"
-            android:label="@string/app_name" >
+            android:name=".MainActivity"
+            android:label="@string/app_name"
+            android:theme="@style/Base.Theme.AppCompat.Light.Dialog" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
-
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+
+
+        <receiver
+            android:name=".EnablerReceiver"
+            android:enabled="true"
+            android:exported="true" >
+            <intent-filter
+                android:priority="1000">
+                <action android:name="android.intent.action.BOOT_COMPLETED" />
+                <action android:name="android.intent.action.SIM_STATE_CHANGED" />
+            </intent-filter>
+        </receiver>
     </application>
 
 </manifest>
