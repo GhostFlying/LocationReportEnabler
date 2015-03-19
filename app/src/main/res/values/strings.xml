@@ -2,7 +2,7 @@
 <resources>
 
     <string name="app_name">LocationReportEnabler</string>
-    <string name="dialog_content">由于 Android 系统安全政策限制，开机启动需要由用户启动程序至少一次后才生效，请点击确认并授予 Root 权限，之后程序图标将从启动器隐藏。</string>
+    <string name="dialog_content">由于 Android 系统安全政策限制，开机启动需要由用户启动程序至少一次后才生效，请点击确认并授予 Root 权限，之后程序图标将从启动器隐藏。\n\n如果你运行在 Android 5.1 或 Play Service 版本为 7.0+，你可能需要清除 Play Service 数据。</string>
     <string name="dialog_button">确认</string>
 
 </resources>
