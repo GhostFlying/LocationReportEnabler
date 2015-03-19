@@ -6,9 +6,6 @@ import android.content.DialogInterface;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
 
-import java.io.DataOutputStream;
-import java.io.IOException;
-
 
 public class MainActivity extends Activity {
 
@@ -21,7 +18,7 @@ public class MainActivity extends Activity {
                 .setPositiveButton(getString(R.string.dialog_button), new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        rootRequire();
+                        PropUtil.enableLocationReport();
                         hideLauncher();
                         finish();
                     }
@@ -32,17 +29,5 @@ public class MainActivity extends Activity {
     private void hideLauncher(){
         PackageManager p = getApplicationContext().getPackageManager();
         p.setComponentEnabledSetting(getComponentName(),PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
-    }
-
-    private void rootRequire(){
-        try{
-            Process p = Runtime.getRuntime().exec("su");
-            DataOutputStream os = new DataOutputStream(p.getOutputStream());
-            os.writeBytes("exit\n");
-            os.flush();
-        }
-        catch (IOException e){
-            e.printStackTrace();
-        }
     }
 }
