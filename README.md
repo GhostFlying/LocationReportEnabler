@@ -28,3 +28,12 @@ If you have already installed the new xposed framwork, you can easily install th
 Download: https://drive.google.com/file/d/0BxNnvIFWQpP2U2NSM3ptdjBnQkk/view?usp=sharing
 
 Xposed Repo: http://repo.xposed.info/module/com.ghostflying.locationreportenabler
+
+
+#### Android N version
+
+As the seLinux limit of the Android N Preview 1, the old general version will not work, this one is an experiment version for this.
+
+Tests passed with Android N Preview 1 on Nexus 6 and [phh's superuser(seLinux permissive)](http://forum.xda-developers.com/showpost.php?p=65748721&postcount=291).
+
+Download: https://drive.google.com/open?id=0BxNnvIFWQpP2b3RjTFNna09ENGc
