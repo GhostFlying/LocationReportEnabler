@@ -3,13 +3,13 @@ package com.ghostflying.locationreportenabler;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.content.DialogInterface;
-import android.content.pm.PackageManager;
+import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.widget.Toast;
 
 
 public class MainActivity extends Activity {
-    private boolean[] function_enable = new boolean[4];
+    private boolean[] function_enable = new boolean[5];
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -21,7 +21,7 @@ public class MainActivity extends Activity {
 
     private AlertDialog.Builder getFunctionDialogBuilder(){
         boolean[] selected = new boolean[]{
-            true, false, false, false
+            true, false, false, false, false
         };
         function_enable[0] = true;
 
@@ -37,7 +37,9 @@ public class MainActivity extends Activity {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
                         if (function_enable[0]){
-                            hideLauncher();
+                            if (function_enable[4]){
+                                setHideIcon();
+                            }
                             PropUtil.applyFunctions(function_enable);
                         }
                         finish();
@@ -45,8 +47,9 @@ public class MainActivity extends Activity {
                 });
     }
 
-    private void hideLauncher(){
-        PackageManager p = getApplicationContext().getPackageManager();
-        p.setComponentEnabledSetting(getComponentName(),PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+    private void setHideIcon(){
+        SharedPreferences sharedPreferences = getSharedPreferences(PropUtil.PREFERENCE_NAME, MODE_PRIVATE);
+        sharedPreferences.edit().putBoolean(PropUtil.PREFERENCE_HIDE_ICON, true).apply();
+        PropUtil.hideLauncher(this);
     }
 }

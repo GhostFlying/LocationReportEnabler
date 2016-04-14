@@ -2,12 +2,13 @@
 <resources>
 
     <string name="app_name">LocationReportEnabler</string>
-    <string name="prompt_toast">由于 Android 系统安全政策限制，开机启动需要由用户启动程序至少一次后才生效，请点击确认并授予 Root 权限，之后程序图标将从启动器隐藏。</string>
+    <string name="prompt_toast">由于 Android 系统安全政策限制，开机启动需要由用户启动程序至少一次后才生效，请点击确认并授予 Root 权限。</string>
 
     <string name="function_choice_dialog_title">选择功能</string>
     <string name="choice_set_fake_operator">开启位置报告（必选）</string>
     <string name="choice_clear_gms_data">同时清除 Play Service 数据</string>
     <string name="choice_clear_maps_data">同时清除 Google Maps 数据</string>
+    <string name="choice_hide_from_launcher">从启动器隐藏</string>
     <string name="choice_reboot">完成后重启</string>
     <string name="function_choice_dialog_button">应用</string>
 
@@ -16,6 +17,7 @@
         <item>@string/choice_clear_gms_data</item>
         <item>@string/choice_clear_maps_data</item>
         <item>@string/choice_reboot</item>
+        <item>@string/choice_hide_from_launcher</item>
     </string-array>
 
 </resources>

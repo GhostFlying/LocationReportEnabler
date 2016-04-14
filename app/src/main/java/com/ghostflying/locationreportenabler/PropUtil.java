@@ -1,5 +1,10 @@
 package com.ghostflying.locationreportenabler;
 
+import android.content.ComponentName;
+import android.content.Context;
+import android.content.pm.PackageManager;
+import android.util.Log;
+
 import java.io.DataOutputStream;
 import java.io.IOException;
 
@@ -7,6 +12,10 @@ import java.io.IOException;
  * Created by ghostflying on 3/18/15.
  */
 public final class PropUtil {
+    public static final String PREFERENCE_NAME = "Settings";
+    public static final String PREFERENCE_HIDE_ICON = "HideIcon";
+    public static final boolean PREFERENCE_HIDE_ICON_DEFAULT = false;
+
     private static final String COMMAND_PREFIX = "setprop ";
     private static final String[] PROPERTIES = {
             "gsm.sim.operator.numeric 310030",
@@ -60,6 +69,15 @@ public final class PropUtil {
         }
         catch (IOException e){
             e.printStackTrace();
+        }
+    }
+
+    public static void hideLauncher(Context context){
+        PackageManager p = context.getPackageManager();
+        ComponentName componentName = new ComponentName(context, MainActivity.class);
+        if (p.getComponentEnabledSetting(componentName) != PackageManager.COMPONENT_ENABLED_STATE_DISABLED){
+            p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            Log.d("PropUtil", "Hide the icon.");
         }
     }
 }
