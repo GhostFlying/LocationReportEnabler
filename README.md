@@ -13,9 +13,10 @@ In general, I suggest to use the xposed one, it do more clearly and stable.
 
 #### General version
 
-This version set the only one variable once the device boot completed or the sim card is ready.
+This version set the two variable once the device boot completed or the sim card is ready.
 
 + set gsm.sim.operator.numeric to 310030
++ set gsm.sim.operator.iso-country to us  (to enable the Google Maps' timeline)
 
 Download: https://drive.google.com/file/d/0BxNnvIFWQpP2aGszc3lYRWRCSzg/view?usp=sharing
 
@@ -31,6 +32,8 @@ Xposed Repo: http://repo.xposed.info/module/com.ghostflying.locationreportenable
 
 
 #### Android N version
+
+*If you root the device with SueprSU 2.71, you do not use the special version.*
 
 As the seLinux limit of the Android N Preview 1, the old general version will not work, this one is an experiment version for this.
 
