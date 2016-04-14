@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 22
-    buildToolsVersion "22"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.ghostflying.locationreportenabler"
         minSdkVersion 16
-        targetSdkVersion 22
-        versionCode 3
-        versionName "1.1 general           "
+        targetSdkVersion 23
+        versionCode 10
+        versionName "1.3 general"
     }
     buildTypes {
     }
@@ -17,5 +17,5 @@ android {
 
 dependencies {
     compile fileTree(dir: 'libs', include: ['*.jar'])
-    compile "com.android.support:appcompat-v7:22.0.0"
+    compile "com.android.support:appcompat-v7:23.3.0"
 }
