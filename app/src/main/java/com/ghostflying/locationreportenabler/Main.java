@@ -1,5 +1,9 @@
 package com.ghostflying.locationreportenabler;
 
+import java.util.ArrayList;
+import java.util.Arrays;
+import java.util.List;
+
 import de.robv.android.xposed.IXposedHookLoadPackage;
 import de.robv.android.xposed.XC_MethodHook;
 import de.robv.android.xposed.XC_MethodReplacement;
@@ -12,9 +16,15 @@ import static de.robv.android.xposed.XposedHelpers.findAndHookMethod;
  * Created by ghostflying on 2/16/15.
  */
 public class Main implements IXposedHookLoadPackage {
+    private static final List<String> HOOKED_PKG = new ArrayList<>(Arrays.asList(
+            "com.google.android.gms",
+            "com.google.android.apps.maps"
+        )
+    );
+
     @Override
     public void handleLoadPackage(XC_LoadPackage.LoadPackageParam loadPackageParam) throws Throwable {
-        if (!loadPackageParam.packageName.equals("com.google.android.gms")){
+        if (!HOOKED_PKG.contains(loadPackageParam.packageName)){
             return;
         }
 
