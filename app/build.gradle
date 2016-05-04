@@ -1,15 +1,15 @@
 apply plugin: 'com.android.application'
 
 android {
-    compileSdkVersion 21
-    buildToolsVersion "21.1.1"
+    compileSdkVersion 23
+    buildToolsVersion "23.0.3"
 
     defaultConfig {
         applicationId "com.ghostflying.locationreportenabler"
         minSdkVersion 16
-        targetSdkVersion 21
-        versionCode 3
-        versionName "1.2 xposed"
+        targetSdkVersion 23
+        versionCode 12
+        versionName "1.3.0 xposed"
     }
     buildTypes {
     }
