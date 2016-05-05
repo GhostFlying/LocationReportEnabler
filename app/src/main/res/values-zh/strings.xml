@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="choice_clear_gms_data">同时清除 Play Service 数据</string>
+    <string name="choice_clear_maps_data">同时清除 Google Maps 数据</string>
+    <string name="choice_hide_from_launcher">从启动器隐藏</string>
+    <string name="choice_reboot">完成后重启</string>
+    <string name="choice_set_fake_operator">开启位置报告（必选）</string>
+    <string name="function_choice_dialog_button">应用</string>
+    <string name="function_choice_dialog_title">选择功能</string>
+    <string name="permission_deny_toast">未获得 电话 相关权限，程序可能不能稳定运行。</string>
+    <string name="permission_toast">为了在启动时自动设置，请授予本程序 电话 相关权限。</string>
+    <string name="prompt_toast">由于 Android 系统安全政策限制，开机启动需要由用户启动程序至少一次后才生效，请点击确认并授予 Root 权限。Android 6.0 以上用户，请授予相应权限以用于自启动。</string>
+</resources>
