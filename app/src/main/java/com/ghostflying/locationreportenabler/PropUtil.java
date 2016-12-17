@@ -18,8 +18,8 @@ public final class PropUtil {
 
     private static final String COMMAND_PREFIX = "setprop ";
     private static final String[] PROPERTIES = {
-            "gsm.sim.operator.numeric 310030",
-            "gsm.sim.operator.iso-country us"
+            "gsm.sim.operator.numeric 310004,310004",
+            "gsm.sim.operator.iso-country us,us"
     };
     private static final String COMMAND_CLEAR_PREFIX = "pm clear ";
     private static final String PKG_GMS = "com.google.android.gms";
