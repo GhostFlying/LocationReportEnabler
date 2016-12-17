@@ -12,7 +12,7 @@ public class EnablerReceiver extends BroadcastReceiver {
 
     @Override
     public void onReceive(Context context, Intent intent) {
-        PropUtil.enableLocationReport();
+        PropUtil.enableLocationReport(context);
         Log.d("EnablerReceiver", "Set prop by " + intent.getAction());
         SharedPreferences sharedPreferences = context.getSharedPreferences(PropUtil.PREFERENCE_NAME, Context.MODE_PRIVATE);
         if (sharedPreferences.getBoolean(PropUtil.PREFERENCE_HIDE_ICON, PropUtil.PREFERENCE_HIDE_ICON_DEFAULT)){
