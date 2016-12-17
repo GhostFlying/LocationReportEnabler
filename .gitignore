@@ -1,6 +1,5 @@
 .gradle/*
 .idea/*
-app/app-release.apk
 app/app.iml
 app/build/*
 build/*
