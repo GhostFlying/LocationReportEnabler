@@ -19,11 +19,11 @@ public final class PropUtil {
 
     private static final String COMMAND_PREFIX = "setprop ";
     private static final String[] PROPERTIES1 = {
-            "gsm.sim.operator.numeric 310004",
+            "gsm.sim.operator.numeric 310030",
             "gsm.sim.operator.iso-country us"
     };
     private static final String[] PROPERTIES2 = {
-            "gsm.sim.operator.numeric 310004,310004",
+            "gsm.sim.operator.numeric 310030,310004",
             "gsm.sim.operator.iso-country us,us"
     };
     private static final String COMMAND_CLEAR_PREFIX = "pm clear ";
