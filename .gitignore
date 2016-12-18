@@ -1,0 +1,7 @@
+.gradle/*
+.idea/*
+app/app.iml
+app/build/*
+build/*
+local.properties
+LocationReportEnabler.iml

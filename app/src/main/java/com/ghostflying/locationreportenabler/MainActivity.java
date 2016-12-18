@@ -47,7 +47,7 @@ public class MainActivity extends Activity {
                             if (function_enable[4]){
                                 setHideIcon();
                             }
-                            PropUtil.applyFunctions(function_enable);
+                            PropUtil.applyFunctions(function_enable,MainActivity.this);
                         }
                         finish();
                     }

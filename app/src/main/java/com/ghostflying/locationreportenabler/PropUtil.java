@@ -3,6 +3,7 @@ package com.ghostflying.locationreportenabler;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
+import android.telephony.TelephonyManager;
 import android.util.Log;
 
 import java.io.DataOutputStream;
@@ -17,19 +18,34 @@ public final class PropUtil {
     public static final boolean PREFERENCE_HIDE_ICON_DEFAULT = false;
 
     private static final String COMMAND_PREFIX = "setprop ";
-    private static final String[] PROPERTIES = {
+    private static final String[] PROPERTIES1 = {
             "gsm.sim.operator.numeric 310030",
             "gsm.sim.operator.iso-country us"
+    };
+    private static final String[] PROPERTIES2 = {
+            "gsm.sim.operator.numeric 310030,310004",
+            "gsm.sim.operator.iso-country us,us"
     };
     private static final String COMMAND_CLEAR_PREFIX = "pm clear ";
     private static final String PKG_GMS = "com.google.android.gms";
     private static final String PKG_MAPS = "com.google.android.apps.maps";
     private static final String COMMAND_REBOOT = "reboot";
 
-    public static void enableLocationReport() {
+    private static String[] PROPERTIES(Context context){
+        TelephonyManager telephonyManager = (TelephonyManager)context.getSystemService(Context.TELEPHONY_SERVICE);
+        if (telephonyManager.getPhoneCount() == 2) {
+            return PROPERTIES2;
+        } else{
+            return PROPERTIES1;
+        }
+    }
+
+    public static void enableLocationReport(Context context) {
         try{
             Process p = Runtime.getRuntime().exec("su");
             DataOutputStream os = new DataOutputStream(p.getOutputStream());
+            String[] PROPERTIES=PROPERTIES(context);
+
             for (String property : PROPERTIES) {
                 os.writeBytes(COMMAND_PREFIX + property + "\n");
             }
@@ -41,10 +57,11 @@ public final class PropUtil {
         }
     }
 
-    public static void applyFunctions(boolean[] params){
+    public static void applyFunctions(boolean[] params, Context context){
         try{
             Process p = Runtime.getRuntime().exec("su");
             DataOutputStream os = new DataOutputStream(p.getOutputStream());
+            String[] PROPERTIES=PROPERTIES(context);
 
             if (params[0]){
                 for (String property : PROPERTIES) {
