@@ -2,8 +2,6 @@
 <resources>
 
     <string name="app_name" translatable="false">LocationReportEnabler</string>
-    <string name="prompt_toast">Please grant root permission for this app and please grant needed permission to autostart over Android 6.0.</string>
-    <string name="permission_toast">Please grant Phone permission to set properties once booted.</string>
     <string name="permission_deny_toast">Do not have Phone permission, the app may runs unstably.</string>
 
     <string name="function_choice_dialog_title">Check functions</string>
@@ -21,5 +19,10 @@
     <string name="choice_clear_maps_data">Clear the data of Google Maps</string>
     <string name="choice_reboot">Reboot</string>
     <string name="function_choice_dialog_button">Apply</string>
+
+    <string name="notice_dialog_confirm">Confirm</string>
+    <string name="notice_dialog_title">Permission required</string>
+    <string name="notice_dialog_message">Please grant root permission to set fake carrier code and phone permission to autostart over Android 6.0.\n
+        If your superSU version is over 2.79, you may need to check grant su during boot option.</string>
 
 </resources>

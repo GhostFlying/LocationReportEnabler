@@ -14,7 +14,9 @@ import java.io.IOException;
 public final class PropUtil {
     public static final String PREFERENCE_NAME = "Settings";
     public static final String PREFERENCE_HIDE_ICON = "HideIcon";
+    public static final String PREFERENCE_NOTICE_SHOWED = "NoticeShowed";
     public static final boolean PREFERENCE_HIDE_ICON_DEFAULT = false;
+    public static final boolean PREFERENCE_NOTICE_SHOWED_DEFAULT = false;
 
     private static final String COMMAND_PREFIX = "setprop ";
     private static final String[] PROPERTIES = {
