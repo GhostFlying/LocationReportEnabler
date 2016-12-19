@@ -76,7 +76,7 @@ public class MainActivity extends Activity {
     private void setHideIcon(){
         SharedPreferences sharedPreferences = getSharedPreferences(PropUtil.PREFERENCE_NAME, MODE_PRIVATE);
         sharedPreferences.edit().putBoolean(PropUtil.PREFERENCE_HIDE_ICON, true).apply();
-        PropUtil.hideLauncher(this);
+        PropUtil.hideOrShowLauncher(this, true);
     }
 
     private void requestPermission(){

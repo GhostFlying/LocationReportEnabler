@@ -15,8 +15,6 @@ public class EnablerReceiver extends BroadcastReceiver {
         PropUtil.enableLocationReport();
         Log.d("EnablerReceiver", "Set prop by " + intent.getAction());
         SharedPreferences sharedPreferences = context.getSharedPreferences(PropUtil.PREFERENCE_NAME, Context.MODE_PRIVATE);
-        if (sharedPreferences.getBoolean(PropUtil.PREFERENCE_HIDE_ICON, PropUtil.PREFERENCE_HIDE_ICON_DEFAULT)){
-            PropUtil.hideLauncher(context);
-        }
+        PropUtil.hideOrShowLauncher(context, sharedPreferences.getBoolean(PropUtil.PREFERENCE_HIDE_ICON, PropUtil.PREFERENCE_HIDE_ICON_DEFAULT));
     }
 }

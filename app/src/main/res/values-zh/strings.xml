@@ -9,7 +9,7 @@
     <string name="function_choice_dialog_title">选择功能</string>
     <string name="permission_deny_toast">未获得 电话 相关权限，程序可能不能稳定运行。</string>
     <string name="notice_dialog_confirm">确认</string>
-    <string name="notice_dialog_message">请授予本 App Root 权限以设置美区运营商信息，若系统在 6.0 以上，请同时授予 电话 权限以用于开机自动设置。\n
-        若你安装的 superSU 版本高于等于 2.79，你可能需要选中开机时运行所有授权申请选项</string>
+    <string name="notice_dialog_message">请授予本 App Root 权限以设置美区运营商信息，若系统在 6.0 以上，请同时授予 电话 权限以用于
+        开机自动设置。\n若你安装的 superSU 版本高于等于 2.79，你可能需要选中开机时运行所有授权申请选项</string>
     <string name="notice_dialog_title">权限请求</string>
 </resources>
