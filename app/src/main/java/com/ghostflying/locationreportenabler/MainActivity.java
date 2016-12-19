@@ -25,9 +25,9 @@ public class MainActivity extends Activity {
         requestPermission();
     }
 
-    private AlertDialog.Builder getFunctionDialogBuilder(){
+    private AlertDialog.Builder getFunctionDialogBuilder() {
         boolean[] selected = new boolean[]{
-            true, false, false, false, false
+                true, false, false, false, false
         };
         function_enable[0] = true;
 
@@ -48,8 +48,8 @@ public class MainActivity extends Activity {
                 .setPositiveButton(R.string.function_choice_dialog_button, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (function_enable[0]){
-                            if (function_enable[4]){
+                        if (function_enable[0]) {
+                            if (function_enable[4]) {
                                 setHideIcon();
                             }
                             PropUtil.applyFunctions(function_enable);
@@ -73,13 +73,13 @@ public class MainActivity extends Activity {
                 });
     }
 
-    private void setHideIcon(){
+    private void setHideIcon() {
         SharedPreferences sharedPreferences = getSharedPreferences(PropUtil.PREFERENCE_NAME, MODE_PRIVATE);
         sharedPreferences.edit().putBoolean(PropUtil.PREFERENCE_HIDE_ICON, true).apply();
         PropUtil.hideOrShowLauncher(this, true);
     }
 
-    private void requestPermission(){
+    private void requestPermission() {
         if (ContextCompat.checkSelfPermission(this,
                 Manifest.permission.READ_PHONE_STATE)
                 != PackageManager.PERMISSION_GRANTED) {
@@ -93,15 +93,13 @@ public class MainActivity extends Activity {
                 if (!getSharedPreferences(PropUtil.PREFERENCE_NAME, MODE_PRIVATE)
                         .getBoolean(PropUtil.PREFERENCE_NOTICE_SHOWED, PropUtil.PREFERENCE_NOTICE_SHOWED_DEFAULT)) {
                     showNoticeDialog();
-                }
-                else {
+                } else {
                     ActivityCompat.requestPermissions(this,
                             new String[]{Manifest.permission.READ_PHONE_STATE},
                             MY_PERMISSIONS_REQUEST);
                 }
             }
-        }
-        else {
+        } else {
             getFunctionDialogBuilder().create().show();
         }
     }

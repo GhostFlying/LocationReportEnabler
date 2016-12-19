@@ -1,11 +1,9 @@
 package com.ghostflying.locationreportenabler;
 
-import android.app.Activity;
 import android.content.ComponentName;
 import android.content.Context;
 import android.content.pm.PackageManager;
 import android.support.annotation.NonNull;
-import android.telephony.TelephonyManager;
 import android.text.TextUtils;
 import android.util.Log;
 
@@ -35,47 +33,44 @@ public final class PropUtil {
     private static final String COMMAND_REBOOT = "reboot";
 
     public static void enableLocationReport() {
-        try{
+        try {
             Process p = Runtime.getRuntime().exec("su");
             DataOutputStream os = new DataOutputStream(p.getOutputStream());
             setFakeCarrier(p, os);
             os.writeBytes("exit\n");
             os.flush();
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
 
-    public static void applyFunctions(boolean[] params){
-        try{
+    public static void applyFunctions(boolean[] params) {
+        try {
             Process p = Runtime.getRuntime().exec("su");
             DataOutputStream os = new DataOutputStream(p.getOutputStream());
 
-            if (params[0]){
+            if (params[0]) {
                 setFakeCarrier(p, os);
             }
 
-            if (params[1]){
+            if (params[1]) {
                 os.writeBytes(COMMAND_CLEAR_PREFIX + PKG_GMS + "\n");
             }
 
-            if (params[2]){
+            if (params[2]) {
                 os.writeBytes(COMMAND_CLEAR_PREFIX + PKG_MAPS + "\n");
             }
 
-            if (params[3]){
+            if (params[3]) {
                 os.writeBytes(COMMAND_REBOOT + "\n");
             }
 
             os.writeBytes("exit\n");
             os.flush();
-        }
-        catch (IOException e){
+        } catch (IOException e) {
             e.printStackTrace();
         }
     }
-
 
 
     private static void setFakeCarrier(Process processWithSu, DataOutputStream os) {
@@ -83,6 +78,7 @@ public final class PropUtil {
     }
 
     private static final int BUF_LEN = 100;
+
     private static void setFakerCarrierForDualCard(Process processWithSu, DataOutputStream os) {
         try {
             // numeric
@@ -103,7 +99,7 @@ public final class PropUtil {
             os.writeBytes(COMMAND_SET_PREFIX + PROPERTY_NUMBERIC + " " + TextUtils.join(",", operatorCodes) + "\n");
 
             // country
-            os.writeBytes(COMMAND_GET_PREFIX +  PROPERTY_COUNTRY + "\n");
+            os.writeBytes(COMMAND_GET_PREFIX + PROPERTY_COUNTRY + "\n");
             os.flush();
             out = getShellOutput(stdout);
             Log.d("PropUtil", String.format("current prop %s is %s", PROPERTY_COUNTRY, out));
@@ -126,10 +122,10 @@ public final class PropUtil {
         StringBuilder out = new StringBuilder();
         //read method will wait forever if there is nothing in the stream
         //so we need to read it in another way than while((read=stdout.read(buffer))>0)
-        while(true){
+        while (true) {
             read = stdout.read(buffer);
             out.append(new String(buffer, 0, read));
-            if(read<BUF_LEN){
+            if (read < BUF_LEN) {
                 //we have read everything
                 break;
             }
@@ -137,18 +133,17 @@ public final class PropUtil {
         return out.toString();
     }
 
-    public static void hideOrShowLauncher(Context context, boolean isHide){
+    public static void hideOrShowLauncher(Context context, boolean isHide) {
         PackageManager p = context.getPackageManager();
         ComponentName componentName = new ComponentName(context, MainActivity.class);
         if (isHide) {
-            if (p.getComponentEnabledSetting(componentName) != PackageManager.COMPONENT_ENABLED_STATE_DISABLED){
-                p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
+            if (p.getComponentEnabledSetting(componentName) != PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
+                p.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);
                 Log.d("PropUtil", "Hide the icon.");
             }
-        }
-        else {
-            if (p.getComponentEnabledSetting(componentName) != PackageManager.COMPONENT_ENABLED_STATE_ENABLED){
-                p.setComponentEnabledSetting(componentName,PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
+        } else {
+            if (p.getComponentEnabledSetting(componentName) != PackageManager.COMPONENT_ENABLED_STATE_ENABLED) {
+                p.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_ENABLED, PackageManager.DONT_KILL_APP);
                 Log.d("PropUtil", "Show the icon.");
             }
         }
