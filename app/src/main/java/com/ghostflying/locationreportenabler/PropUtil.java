@@ -23,9 +23,9 @@ public final class PropUtil {
 
     private static final String COMMAND_SET_PREFIX = "setprop ";
     private static final String COMMAND_GET_PREFIX = "getprop ";
-    private static final String PROPERTY_NUMBERIC = "gsm.sim.operator.numeric";
+    private static final String PROPERTY_NUMERIC = "gsm.sim.operator.numeric";
     private static final String PROPERTY_COUNTRY = "gsm.sim.operator.iso-country";
-    private static final String FAKE_NUMBERIC = "310030";
+    private static final String FAKE_NUMERIC = "310030";
     private static final String FAKE_COUNTRY = "us";
     private static final String COMMAND_CLEAR_PREFIX = "pm clear ";
     private static final String PKG_GMS = "com.google.android.gms";
@@ -82,21 +82,21 @@ public final class PropUtil {
     private static void setFakerCarrierForDualCard(Process processWithSu, DataOutputStream os) {
         try {
             // numeric
-            os.writeBytes(COMMAND_GET_PREFIX + PROPERTY_NUMBERIC + "\n");
+            os.writeBytes(COMMAND_GET_PREFIX + PROPERTY_NUMERIC + "\n");
             os.flush();
 
             InputStream stdout = processWithSu.getInputStream();
             String out = getShellOutput(stdout);
-            Log.d("PropUtil", String.format("current prop %s is %s", PROPERTY_NUMBERIC, out));
+            Log.d("PropUtil", String.format("current prop %s is %s", PROPERTY_NUMERIC, out));
 
             // replace all as some devices only have one even it have dual card.
             // as we can not find out the implement of the devices with dual card before 6.0,
             // any action should be careful.
             String[] operatorCodes = out.split(",");
             for (int i = 0; i < operatorCodes.length; i++) {
-                operatorCodes[i] = FAKE_NUMBERIC;
+                operatorCodes[i] = FAKE_NUMERIC;
             }
-            os.writeBytes(COMMAND_SET_PREFIX + PROPERTY_NUMBERIC + " " + TextUtils.join(",", operatorCodes) + "\n");
+            os.writeBytes(COMMAND_SET_PREFIX + PROPERTY_NUMERIC + " " + TextUtils.join(",", operatorCodes) + "\n");
 
             // country
             os.writeBytes(COMMAND_GET_PREFIX + PROPERTY_COUNTRY + "\n");
