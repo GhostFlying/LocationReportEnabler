@@ -8,15 +8,17 @@ import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.Bundle;
+import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
 import android.widget.Toast;
 
+import com.ghostflying.locationreportenabler.views.FunctionChooseAlertView;
+
 
 public class MainActivity extends Activity {
     private static final int MY_PERMISSIONS_REQUEST = 100;
-
-    private boolean[] function_enable = new boolean[5];
+    private FunctionChooseAlertView mAlertView = null;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,19 +28,14 @@ public class MainActivity extends Activity {
     }
 
     private AlertDialog.Builder getFunctionDialogBuilder() {
-        boolean[] selected = new boolean[]{
-                true, false, false, false, false
-        };
-        function_enable[0] = true;
+
+        if (mAlertView == null) {
+            mAlertView = new FunctionChooseAlertView(this);
+        }
 
         return new AlertDialog.Builder(this)
                 .setTitle(R.string.function_choice_dialog_title)
-                .setMultiChoiceItems(R.array.dialog_choices, selected, new DialogInterface.OnMultiChoiceClickListener() {
-                    @Override
-                    public void onClick(DialogInterface dialog, int which, boolean isChecked) {
-                        function_enable[which] = isChecked;
-                    }
-                })
+                .setView(mAlertView)
                 .setOnCancelListener(new DialogInterface.OnCancelListener() {
                     @Override
                     public void onCancel(DialogInterface dialog) {
@@ -48,12 +45,7 @@ public class MainActivity extends Activity {
                 .setPositiveButton(R.string.function_choice_dialog_button, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        if (function_enable[0]) {
-                            if (function_enable[4]) {
-                                setHideIcon();
-                            }
-                            PropUtil.applyFunctions(function_enable);
-                        }
+                        PropUtil.applyFunctions(mAlertView.getSelectedFunctions());
                         finish();
                     }
                 });
@@ -114,7 +106,7 @@ public class MainActivity extends Activity {
 
     @Override
     public void onRequestPermissionsResult(int requestCode,
-                                           String permissions[], int[] grantResults) {
+                                           @NonNull String permissions[], @NonNull int[] grantResults) {
         switch (requestCode) {
             case MY_PERMISSIONS_REQUEST: {
                 // If request is cancelled, the result arrays are empty.

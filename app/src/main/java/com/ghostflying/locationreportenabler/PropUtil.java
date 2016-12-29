@@ -20,13 +20,15 @@ public final class PropUtil {
     public static final String PREFERENCE_NOTICE_SHOWED = "NoticeShowed";
     public static final boolean PREFERENCE_HIDE_ICON_DEFAULT = false;
     public static final boolean PREFERENCE_NOTICE_SHOWED_DEFAULT = false;
+    public static final String PREFERENCE_FAKE_NUMERIC = "FakeNumeric";
+    public static final String PREFERENCE_FAKE_COUNTRY = "FakeCountry";
+    private static final String PREFERENCE_FAKE_NUMERIC_DEFAULT = "310030";
+    private static final String PREFERENCE_FAKE_COUNTRY_DEFAULT = "us";
 
     private static final String COMMAND_SET_PREFIX = "setprop ";
     private static final String COMMAND_GET_PREFIX = "getprop ";
     private static final String PROPERTY_NUMERIC = "gsm.sim.operator.numeric";
     private static final String PROPERTY_COUNTRY = "gsm.sim.operator.iso-country";
-    private static final String FAKE_NUMERIC = "310030";
-    private static final String FAKE_COUNTRY = "us";
     private static final String COMMAND_CLEAR_PREFIX = "pm clear ";
     private static final String PKG_GMS = "com.google.android.gms";
     private static final String PKG_MAPS = "com.google.android.apps.maps";
@@ -94,7 +96,7 @@ public final class PropUtil {
             // any action should be careful.
             String[] operatorCodes = out.split(",");
             for (int i = 0; i < operatorCodes.length; i++) {
-                operatorCodes[i] = FAKE_NUMERIC;
+                operatorCodes[i] = PREFERENCE_FAKE_NUMERIC_DEFAULT;
             }
             os.writeBytes(COMMAND_SET_PREFIX + PROPERTY_NUMERIC + " " + TextUtils.join(",", operatorCodes) + "\n");
 
@@ -106,7 +108,7 @@ public final class PropUtil {
 
             String[] isoCountries = out.split(",");
             for (int i = 0; i < isoCountries.length; i++) {
-                isoCountries[i] = FAKE_COUNTRY;
+                isoCountries[i] = PREFERENCE_FAKE_COUNTRY_DEFAULT;
             }
             os.writeBytes(COMMAND_SET_PREFIX + PROPERTY_COUNTRY + " " + TextUtils.join(",", isoCountries) + "\n");
 
