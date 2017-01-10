@@ -25,4 +25,6 @@
     <string name="notice_dialog_message">Please grant root permission to set fake carrier code and phone permission to autostart over
         Android 6.0.\nIf your superSU version is over 2.79, you may need to check grant su during boot option.</string>
 
+    <string name="hint_numeric">Operator numeric (change if u know what u do)</string>
+    <string name="hint_country">Operator country (change if u know what u do)</string>
 </resources>

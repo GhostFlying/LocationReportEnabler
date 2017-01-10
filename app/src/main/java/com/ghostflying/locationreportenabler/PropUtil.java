@@ -22,8 +22,8 @@ public final class PropUtil {
     public static final boolean PREFERENCE_NOTICE_SHOWED_DEFAULT = false;
     public static final String PREFERENCE_FAKE_NUMERIC = "FakeNumeric";
     public static final String PREFERENCE_FAKE_COUNTRY = "FakeCountry";
-    private static final String PREFERENCE_FAKE_NUMERIC_DEFAULT = "310030";
-    private static final String PREFERENCE_FAKE_COUNTRY_DEFAULT = "us";
+    public static final String PREFERENCE_FAKE_NUMERIC_DEFAULT = "310030";
+    public static final String PREFERENCE_FAKE_COUNTRY_DEFAULT = "us";
 
     private static final String COMMAND_SET_PREFIX = "setprop ";
     private static final String COMMAND_GET_PREFIX = "getprop ";
@@ -34,11 +34,11 @@ public final class PropUtil {
     private static final String PKG_MAPS = "com.google.android.apps.maps";
     private static final String COMMAND_REBOOT = "reboot";
 
-    public static void enableLocationReport() {
+    public static void enableLocationReport(String numeric, String country) {
         try {
             Process p = Runtime.getRuntime().exec("su");
             DataOutputStream os = new DataOutputStream(p.getOutputStream());
-            setFakeCarrier(p, os);
+            setFakeCarrier(p, os, numeric, country);
             os.writeBytes("exit\n");
             os.flush();
         } catch (IOException e) {
@@ -46,13 +46,13 @@ public final class PropUtil {
         }
     }
 
-    public static void applyFunctions(boolean[] params) {
+    public static void applyFunctions(boolean[] params, String numeric, String country) {
         try {
             Process p = Runtime.getRuntime().exec("su");
             DataOutputStream os = new DataOutputStream(p.getOutputStream());
 
             if (params[0]) {
-                setFakeCarrier(p, os);
+                setFakeCarrier(p, os, numeric, country);
             }
 
             if (params[1]) {
@@ -75,13 +75,17 @@ public final class PropUtil {
     }
 
 
-    private static void setFakeCarrier(Process processWithSu, DataOutputStream os) {
-        setFakerCarrierForDualCard(processWithSu, os);
+    private static void setFakeCarrier(
+            Process processWithSu, DataOutputStream os, String numeric, String country) {
+
+        setFakerCarrierForDualCard(processWithSu, os, numeric, country);
     }
 
     private static final int BUF_LEN = 100;
 
-    private static void setFakerCarrierForDualCard(Process processWithSu, DataOutputStream os) {
+    private static void setFakerCarrierForDualCard(
+            Process processWithSu, DataOutputStream os, String numberic, String country) {
+
         try {
             // numeric
             os.writeBytes(COMMAND_GET_PREFIX + PROPERTY_NUMERIC + "\n");
@@ -96,7 +100,7 @@ public final class PropUtil {
             // any action should be careful.
             String[] operatorCodes = out.split(",");
             for (int i = 0; i < operatorCodes.length; i++) {
-                operatorCodes[i] = PREFERENCE_FAKE_NUMERIC_DEFAULT;
+                operatorCodes[i] = numberic;
             }
             os.writeBytes(COMMAND_SET_PREFIX + PROPERTY_NUMERIC + " " + TextUtils.join(",", operatorCodes) + "\n");
 
@@ -108,7 +112,7 @@ public final class PropUtil {
 
             String[] isoCountries = out.split(",");
             for (int i = 0; i < isoCountries.length; i++) {
-                isoCountries[i] = PREFERENCE_FAKE_COUNTRY_DEFAULT;
+                isoCountries[i] = country;
             }
             os.writeBytes(COMMAND_SET_PREFIX + PROPERTY_COUNTRY + " " + TextUtils.join(",", isoCountries) + "\n");
 

@@ -4,6 +4,7 @@ import android.Manifest;
 import android.app.Activity;
 import android.app.AlertDialog;
 import android.app.Dialog;
+import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
@@ -11,6 +12,8 @@ import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
 import android.support.v4.content.ContextCompat;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.Toast;
 
 import com.ghostflying.locationreportenabler.views.FunctionChooseAlertView;
@@ -45,7 +48,16 @@ public class MainActivity extends Activity {
                 .setPositiveButton(R.string.function_choice_dialog_button, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        PropUtil.applyFunctions(mAlertView.getSelectedFunctions());
+                        SharedPreferences preferences = getSharedPreferences(PropUtil.PREFERENCE_NAME, Context.MODE_PRIVATE);
+                        SharedPreferences.Editor editor = preferences.edit();
+                        String numeric = mAlertView.getOperatorNumber();
+                        String country = mAlertView.getOperatorCountry();
+
+                        editor.putString(PropUtil.PREFERENCE_FAKE_NUMERIC, numeric);
+                        editor.putString(PropUtil.PREFERENCE_FAKE_COUNTRY, country);
+                        editor.apply();
+
+                        PropUtil.applyFunctions(mAlertView.getSelectedFunctions(), numeric, country);
                         finish();
                     }
                 });
@@ -92,7 +104,11 @@ public class MainActivity extends Activity {
                 }
             }
         } else {
-            getFunctionDialogBuilder().create().show();
+            Dialog dialog = getFunctionDialogBuilder().create();
+            Window window = dialog.getWindow();
+            if (window != null)
+                window.setSoftInputMode(WindowManager.LayoutParams.SOFT_INPUT_STATE_HIDDEN);
+            dialog.show();
         }
     }
 
