@@ -17,8 +17,9 @@ This version set the two variable once the device boot completed or the sim card
 
 + set gsm.sim.operator.numeric to 310030
 + set gsm.sim.operator.iso-country to us  (to enable the Google Maps' timeline)
++ after version 1.4.1, you can set it to any value you want (be caution to use it)
 
-Download: https://drive.google.com/file/d/0BxNnvIFWQpP2aGszc3lYRWRCSzg/view?usp=sharing
+Download: https://github.com/GhostFlying/LocationReportEnabler/releases/download/1.4.1/app-release.apk
 
 #### Xposed version
 
