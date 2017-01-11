@@ -1,4 +1,4 @@
-package com.ghostflying.locationreportenabler.views;
+package com.ghostflying.locationreportenabler.view;
 
 import android.content.Context;
 import android.content.SharedPreferences;

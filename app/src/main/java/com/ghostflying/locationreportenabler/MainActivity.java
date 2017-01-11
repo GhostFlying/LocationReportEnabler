@@ -16,7 +16,7 @@ import android.view.Window;
 import android.view.WindowManager;
 import android.widget.Toast;
 
-import com.ghostflying.locationreportenabler.views.FunctionChooseAlertView;
+import com.ghostflying.locationreportenabler.view.FunctionChooseAlertView;
 
 
 public class MainActivity extends Activity {
