@@ -27,4 +27,6 @@
 
     <string name="hint_numeric">Operator numeric (change if u know what u do)</string>
     <string name="hint_country">Operator country (change if u know what u do)</string>
+
+    <string name="tile_label_default">Current code and country</string>
 </resources>

@@ -20,7 +20,6 @@
             </intent-filter>
         </activity>
 
-
         <receiver
             android:name=".EnablerReceiver"
             android:enabled="true"
@@ -31,6 +30,15 @@
                 <action android:name="android.intent.action.SIM_STATE_CHANGED" />
             </intent-filter>
         </receiver>
+
+        <service android:name=".tile.FakeOperatorTile"
+            android:icon="@drawable/ic_launcher"
+            android:label="@string/tile_label_default"
+            android:permission="android.permission.BIND_QUICK_SETTINGS_TILE">
+            <intent-filter>
+                <action android:name="android.service.quicksettings.action.QS_TILE" />
+            </intent-filter>
+        </service>
     </application>
 
 </manifest>
