@@ -16,6 +16,8 @@ import java.io.InputStream;
  */
 public final class PropUtil {
     public static final String PREFERENCE_NAME = "Settings";
+    public static final String PREFERENCE_ENABLED = "Enabled";
+    public static final boolean PREFERENCE_ENABLED_DEFAULT = true;
     public static final String PREFERENCE_HIDE_ICON = "HideIcon";
     public static final String PREFERENCE_NOTICE_SHOWED = "NoticeShowed";
     public static final boolean PREFERENCE_HIDE_ICON_DEFAULT = false;
@@ -66,6 +68,20 @@ public final class PropUtil {
             if (params[3]) {
                 os.writeBytes(COMMAND_REBOOT + "\n");
             }
+
+            os.writeBytes("exit\n");
+            os.flush();
+        } catch (IOException e) {
+            e.printStackTrace();
+        }
+    }
+
+    public static void reboot() {
+        try {
+            Process p = Runtime.getRuntime().exec("su");
+            DataOutputStream os = new DataOutputStream(p.getOutputStream());
+
+            os.writeBytes(COMMAND_REBOOT + "\n");
 
             os.writeBytes("exit\n");
             os.flush();

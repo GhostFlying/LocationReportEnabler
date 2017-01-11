@@ -29,4 +29,9 @@
     <string name="hint_country">Operator country (change if u know what u do)</string>
 
     <string name="tile_label_default">Current code and country</string>
+    <string name="tile_dialog_message">LocationReportEnabler is %1$s, you need reboot to take effect.</string>
+    <string name="tile_dialog_message_enabled">enabled</string>
+    <string name="tile_dialog_message_disabled">disabled</string>
+    <string name="tile_dialog_reboot">Reboot</string>
+    <string name="tile_dialog_cancel">I will reboot later</string>
 </resources>

@@ -57,7 +57,12 @@ public class MainActivity extends Activity {
                         editor.putString(PropUtil.PREFERENCE_FAKE_COUNTRY, country);
                         editor.apply();
 
-                        PropUtil.applyFunctions(mAlertView.getSelectedFunctions(), numeric, country);
+                        boolean[] result = mAlertView.getSelectedFunctions();
+                        if (result[4]) {
+                            setHideIcon();
+                        }
+
+                        PropUtil.applyFunctions(result, numeric, country);
                         finish();
                     }
                 });
