@@ -14,4 +14,10 @@
     <string name="notice_dialog_title">权限请求</string>
     <string name="hint_country">运营商代码（无特殊需要请勿修改）</string>
     <string name="hint_numeric">运营商国家（无特殊需要请勿修改）</string>
+    <string name="tile_dialog_cancel">稍后重启</string>
+    <string name="tile_dialog_message">LocationReportEnabler %1$s，重启后生效</string>
+    <string name="tile_dialog_message_disabled">已关闭</string>
+    <string name="tile_dialog_message_enabled">已开启</string>
+    <string name="tile_dialog_reboot">重启</string>
+    <string name="tile_label_default">当前代码和国家</string>
 </resources>
