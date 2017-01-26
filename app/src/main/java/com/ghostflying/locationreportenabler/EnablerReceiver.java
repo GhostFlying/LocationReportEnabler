@@ -4,6 +4,7 @@ import android.content.BroadcastReceiver;
 import android.content.Context;
 import android.content.Intent;
 import android.content.SharedPreferences;
+import android.os.Build;
 import android.util.Log;
 
 public class EnablerReceiver extends BroadcastReceiver {
@@ -14,7 +15,7 @@ public class EnablerReceiver extends BroadcastReceiver {
     public void onReceive(Context context, Intent intent) {
         Log.d("EnablerReceiver", "Set prop by " + intent.getAction());
 
-        SharedPreferences preferences = context.getSharedPreferences(PropUtil.PREFERENCE_NAME, Context.MODE_PRIVATE);
+        SharedPreferences preferences = PropUtil.getProtecredSharedPreferences(context);
 
         if (preferences.getBoolean(PropUtil.PREFERENCE_ENABLED, PropUtil.PREFERENCE_ENABLED_DEFAULT)) {
             String numeric = preferences.getString(PropUtil.PREFERENCE_FAKE_NUMERIC, PropUtil.PREFERENCE_FAKE_NUMERIC_DEFAULT);

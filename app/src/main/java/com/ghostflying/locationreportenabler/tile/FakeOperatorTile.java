@@ -33,7 +33,7 @@ public class FakeOperatorTile extends TileService {
         String code = manager.getSimOperator();
         String country = manager.getSimCountryIso();
 
-        SharedPreferences preferences = getSharedPreferences(PropUtil.PREFERENCE_NAME, MODE_PRIVATE);
+        SharedPreferences preferences = PropUtil.getProtecredSharedPreferences(this);
 
         Tile tile = getQsTile();
         tile.setLabel(String.format("%s %s", code, country));
@@ -50,7 +50,7 @@ public class FakeOperatorTile extends TileService {
     public void onClick() {
         super.onClick();
 
-        SharedPreferences preferences = getSharedPreferences(PropUtil.PREFERENCE_NAME, MODE_PRIVATE);
+        SharedPreferences preferences = PropUtil.getProtecredSharedPreferences(this);
         final boolean enabledCurrent = preferences.getBoolean(PropUtil.PREFERENCE_ENABLED, PropUtil.PREFERENCE_ENABLED_DEFAULT);
 
         final SharedPreferences.Editor editor = preferences.edit();

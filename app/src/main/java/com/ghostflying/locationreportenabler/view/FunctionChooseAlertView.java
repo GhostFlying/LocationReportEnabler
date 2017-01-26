@@ -215,9 +215,7 @@ public class FunctionChooseAlertView extends LinearLayout {
         }
 
         private String getInitValue() {
-            SharedPreferences preferences = mContext.getSharedPreferences(
-                    PropUtil.PREFERENCE_NAME, Context.MODE_PRIVATE
-            );
+            SharedPreferences preferences = PropUtil.getProtecredSharedPreferences(mContext);
 
             switch (mEditType) {
                 case EDIT_COUNTRY:

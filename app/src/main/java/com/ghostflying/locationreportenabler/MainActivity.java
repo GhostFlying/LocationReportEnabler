@@ -8,6 +8,7 @@ import android.content.Context;
 import android.content.DialogInterface;
 import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.os.Bundle;
 import android.support.annotation.NonNull;
 import android.support.v4.app.ActivityCompat;
@@ -48,7 +49,7 @@ public class MainActivity extends Activity {
                 .setPositiveButton(R.string.function_choice_dialog_button, new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface dialog, int which) {
-                        SharedPreferences preferences = getSharedPreferences(PropUtil.PREFERENCE_NAME, Context.MODE_PRIVATE);
+                        SharedPreferences preferences = PropUtil.getProtecredSharedPreferences(getApplicationContext());
                         SharedPreferences.Editor editor = preferences.edit();
                         String numeric = mAlertView.getOperatorNumber();
                         String country = mAlertView.getOperatorCountry();
@@ -83,7 +84,7 @@ public class MainActivity extends Activity {
     }
 
     private void setHideIcon() {
-        SharedPreferences sharedPreferences = getSharedPreferences(PropUtil.PREFERENCE_NAME, MODE_PRIVATE);
+        SharedPreferences sharedPreferences = PropUtil.getProtecredSharedPreferences(this);
         sharedPreferences.edit().putBoolean(PropUtil.PREFERENCE_HIDE_ICON, true).apply();
         PropUtil.hideOrShowLauncher(this, true);
     }

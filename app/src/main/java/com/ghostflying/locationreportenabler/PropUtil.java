@@ -1,8 +1,11 @@
 package com.ghostflying.locationreportenabler;
 
+import android.app.admin.DevicePolicyManager;
 import android.content.ComponentName;
 import android.content.Context;
+import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
+import android.os.Build;
 import android.support.annotation.NonNull;
 import android.text.TextUtils;
 import android.util.Log;
@@ -169,5 +172,17 @@ public final class PropUtil {
                 Log.d("PropUtil", "Show the icon.");
             }
         }
+    }
+
+    public static SharedPreferences getProtecredSharedPreferences(Context context) {
+        SharedPreferences preferences;
+        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.N) {
+            Context protectedContext = context.createDeviceProtectedStorageContext();
+            preferences = protectedContext.getSharedPreferences(PropUtil.PREFERENCE_NAME, Context.MODE_PRIVATE);
+        }
+        else {
+            preferences = context.getSharedPreferences(PropUtil.PREFERENCE_NAME, Context.MODE_PRIVATE);
+        }
+        return preferences;
     }
 }
