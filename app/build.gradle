@@ -8,8 +8,8 @@ android {
         applicationId "com.ghostflying.locationreportenabler"
         minSdkVersion 16
         targetSdkVersion 25
-        versionCode 15
-        versionName "1.4.1 general"
+        versionCode 16
+        versionName "1.4.2 general"
     }
     buildTypes {
     }
