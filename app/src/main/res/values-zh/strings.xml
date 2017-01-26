@@ -12,8 +12,8 @@
     <string name="notice_dialog_message">请授予本 App Root 权限以设置美区运营商信息，若系统在 6.0 以上，请同时授予 电话 权限以用于
         开机自动设置。\n若你安装的 superSU 版本高于等于 2.79，你可能需要选中开机时运行所有授权申请选项</string>
     <string name="notice_dialog_title">权限请求</string>
-    <string name="hint_country">运营商代码（无特殊需要请勿修改）</string>
-    <string name="hint_numeric">运营商国家（无特殊需要请勿修改）</string>
+    <string name="hint_country">运营商国家（无特殊需要请勿修改）</string>
+    <string name="hint_numeric">运营商代码（无特殊需要请勿修改）</string>
     <string name="tile_dialog_cancel">稍后重启</string>
     <string name="tile_dialog_message">LocationReportEnabler %1$s，重启后生效</string>
     <string name="tile_dialog_message_disabled">已关闭</string>
