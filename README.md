@@ -21,7 +21,6 @@ This version set the two variable once the device boot completed or the sim card
 
 Download: https://github.com/GhostFlying/LocationReportEnabler/releases
 
-Google Play: https://play.google.com/store/apps/details?id=com.ghostflying.locationreportenabler
 #### Xposed version
 
 As the alpha version of xposed for lollipop is released, we have a better way to unlock location report in China.
