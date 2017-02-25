@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+    <string name="choice_clear_gms_data">同時にPlay Serviceデータを消去</string>
+    <string name="choice_clear_maps_data">同時にGoogle Mapsのデータを消去</string>
+    <string name="choice_hide_from_launcher">ホームから隠す</string>
+    <string name="choice_reboot">完了後リブートする</string>
+    <string name="choice_set_fake_operator">位置情報の報告（必須）</string>
+    <string name="function_choice_dialog_button">応用</string>
+    <string name="function_choice_dialog_title">選択機能</string>
+    <string name="permission_deny_toast">電話と関係する機能を未取得の場合、プログラムを正確に実行できないおそれがあります。</string>
+    <string name="notice_dialog_confirm">確認</string>
+    <string name="notice_dialog_message">このアプリRoot権限を使用してアメリカのキャリア情報を設定してください。
+システムが6.0以上であるなら、同じく通話の権限を使用して自動設定を行ってください。
+\nもしSuperSUが2.79版以上のものがインストールされている場合、「起動中にSUを有効化」を選択する必要があります。</string>
+    <string name="notice_dialog_title">権限の要求</string>
+    <string name="hint_country">キャリアの国（特殊な要求がないが、変更しないで下さい。）</string>
+    <string name="hint_numeric">キャリアのコード（特殊な要求がないが、変更しないで下さい。）</string>
+    <string name="tile_dialog_cancel">後でリブートします</string>
+    <string name="tile_dialog_message">LocationReportEnabler %1$s，リブート後有効になります。</string>
+    <string name="tile_dialog_message_disabled">無効</string>
+    <string name="tile_dialog_message_enabled">有効</string>
+    <string name="tile_dialog_reboot">リブート</string>
+    <string name="tile_label_default">現在のコードと国</string>
+</resources>
