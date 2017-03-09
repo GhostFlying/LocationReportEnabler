@@ -149,7 +149,9 @@ public final class PropUtil {
         //so we need to read it in another way than while((read=stdout.read(buffer))>0)
         while (true) {
             read = stdout.read(buffer);
-            out.append(new String(buffer, 0, read));
+            if (read > 0) {
+                out.append(new String(buffer, 0, read));
+            }
             if (read < BUF_LEN) {
                 //we have read everything
                 break;
