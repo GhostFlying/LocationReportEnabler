@@ -162,7 +162,7 @@ public final class PropUtil {
 
     public static void hideOrShowLauncher(Context context, boolean isHide) {
         PackageManager p = context.getPackageManager();
-        ComponentName componentName = new ComponentName(context, MainActivity.class);
+        ComponentName componentName = new ComponentName(context, SettingActivity.class);
         if (isHide) {
             if (p.getComponentEnabledSetting(componentName) != PackageManager.COMPONENT_ENABLED_STATE_DISABLED) {
                 p.setComponentEnabledSetting(componentName, PackageManager.COMPONENT_ENABLED_STATE_DISABLED, PackageManager.DONT_KILL_APP);

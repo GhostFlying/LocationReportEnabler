@@ -34,4 +34,9 @@
     <string name="tile_dialog_message_disabled">disabled</string>
     <string name="tile_dialog_reboot">Reboot</string>
     <string name="tile_dialog_cancel">I will reboot later</string>
+
+    <string name="tips">Some battery optimize function like advanced optimize in Oxygen OS may prevent this app work as usual, you should
+        better disable such function or put this app to the whitelist.\n\nTo enable VoLTE related function,
+        you need to change the operator code to one supported such as 310260. But you may receive some strange
+        sms from your real operator if such function is not available in your region.</string>
 </resources>

@@ -10,8 +10,6 @@
 
     <CheckBox
         android:id="@+id/item_cb"
-        android:layout_marginLeft="20dp"
-        android:layout_marginStart="20dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content" />
 
