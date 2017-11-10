@@ -9,8 +9,7 @@
     <string name="function_choice_dialog_title">选择功能</string>
     <string name="permission_deny_toast">未获得 电话 相关权限，程序可能不能稳定运行。</string>
     <string name="notice_dialog_confirm">确认</string>
-    <string name="notice_dialog_message">请授予本 App Root 权限以设置美区运营商信息，若系统在 6.0 以上，请同时授予 电话 权限以用于
-        开机自动设置。\n若你安装的 superSU 版本高于等于 2.79，你可能需要选中开机时运行所有授权申请选项</string>
+    <string name="notice_dialog_message">请授予本 App Root 权限以设置运营商信息，若系统在 6.0 以上，请同时授予 电话 权限以用于 开机自动设置。 若你安装的 superSU 版本高于等于 2.79，你可能需要选中开机时运行所有授权申请选项</string>
     <string name="notice_dialog_title">权限请求</string>
     <string name="hint_country">运营商国家（无特殊需要请勿修改）</string>
     <string name="hint_numeric">运营商代码（无特殊需要请勿修改）</string>
@@ -20,4 +19,6 @@
     <string name="tile_dialog_message_enabled">已开启</string>
     <string name="tile_dialog_reboot">重启</string>
     <string name="tile_label_default">当前代码和国家</string>
+    <string name="tips">一些涉及电池优化的功能如 Oxygen OS 的高级优化可能会导致本应用工作异常，请关闭类似功能或将本应用加入白名单。\n\n如果需要使用 VoLTE 功能，
+        你需要修改运营商代码为支持 VoLTE 的运营商，如 310260。但如果你所在区域不支持 VoLTE，可能导致你收到若干奇怪的短信。</string>
 </resources>

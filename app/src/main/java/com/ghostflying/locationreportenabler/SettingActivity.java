@@ -8,7 +8,6 @@ import android.content.SharedPreferences;
 import android.content.pm.PackageManager;
 import android.os.AsyncTask;
 import android.os.Bundle;
-import android.sax.RootElement;
 import android.support.annotation.NonNull;
 import android.support.design.widget.FloatingActionButton;
 import android.support.design.widget.Snackbar;
@@ -63,9 +62,6 @@ public class SettingActivity extends AppCompatActivity {
                 editor.apply();
 
                 final boolean[] result = functionChooseAlertView.getSelectedFunctions();
-                if (result[4]) {
-                    setHideIcon();
-                }
 
                 if (mRootCheckTask != null && !mRootCheckTask.isCancelled()) {
                     mRootCheckTask.cancel(true);
@@ -74,6 +70,10 @@ public class SettingActivity extends AppCompatActivity {
                     @Override
                     public void run() {
                         PropUtil.applyFunctions(result, numeric, country);
+                        if (result[4]) {
+                            setHideIcon();
+                        }
+                        Log.d("SettingActivity", "everything done.");
                     }
                 }).start();
                 finish();
